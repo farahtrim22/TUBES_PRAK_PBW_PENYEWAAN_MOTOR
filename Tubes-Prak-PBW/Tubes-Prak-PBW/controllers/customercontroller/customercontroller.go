@@ -1,6 +1,7 @@
 package customercontroller
 
 import (
+	"Tubes_PBW/config"
 	"Tubes_PBW/entities"
 	"Tubes_PBW/libraries"
 	"Tubes_PBW/models"
@@ -14,14 +15,24 @@ var validation = libraries.NewValidation()
 var CustomerModel = models.NewCustomerModel()
 
 func Index(response http.ResponseWriter, request *http.Request) {
-	customer, _ := CustomerModel.FindAll()
 
-	data := map[string]interface{}{
-		"customer": customer,
+	session, _ := config.Store.Get(request, config.SESSION_ID)
+
+	if len(session.Values) == 0 {
+		http.Redirect(response, request, "/login", http.StatusSeeOther)
+	} else {
+		if session.Values["loggedIn"] != true {
+			http.Redirect(response, request, "/login", http.StatusSeeOther)
+		} else {
+			customer, _ := CustomerModel.FindAll()
+			data := map[string]interface{} {
+				"customer": customer,
+				"nama_lengkap": session.Values["nama_lengkap"],
+			}
+			temp := template.Must(template.ParseFiles(filepath.Join("templates", "customer.html")))
+			temp.Execute(response, data)
+		}
 	}
-
-	temp := template.Must(template.ParseFiles(filepath.Join("templates", "customer.html")))
-	temp.Execute(response, data)
 }
 
 func Tambah(response http.ResponseWriter, request *http.Request) {
@@ -107,5 +118,5 @@ func Hapus(response http.ResponseWriter, request *http.Request) {
 
 	CustomerModel.Delete(id)
 
-	http.Redirect(response, request, "/", http.StatusSeeOther)
+	http.Redirect(response, request, "/customer", http.StatusSeeOther)
 }

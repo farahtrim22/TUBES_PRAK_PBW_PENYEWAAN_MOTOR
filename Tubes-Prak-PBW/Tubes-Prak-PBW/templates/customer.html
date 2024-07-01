@@ -15,7 +15,7 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-	<title>sewaMotor</title>
+	<title>sewaMotor - Data Customer</title>
 
 	<link href="/static/css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -26,16 +26,28 @@
 		<!-- SideBar -->
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="index.html">
+				<a class="sidebar-brand" href="/">
 					<span class="align-middle">sewaMotor</span>
 				</a>
 
 				<ul class="sidebar-nav">
-
-					<li class="sidebar-item active">
-						<a class="sidebar-link" href="index.html">
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="/">
 							<i class="align-middle" data-feather="sliders"></i> <span
 								class="align-middle">Dashboard</span>
+						</a>
+					</li>
+					<li class="sidebar-header">
+						Data 
+					</li>
+					<li class="sidebar-item active">
+						<a class="sidebar-link" href="/customer">
+							<i class="align-middle me-2" data-feather="users"></i> <span class="align-middle">Customer</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="/motor">
+							<i class="align-middle me-2" data-feather="aperture"></i> <span class="align-middle">Motor</span>
 						</a>
 					</li>
 				</ul>
@@ -49,8 +61,23 @@
 				<a class="sidebar-toggle js-sidebar-toggle">
 					<i class="hamburger align-self-center"></i>
 				</a>
+				<div class="navbar-collapse collapse">
+					<ul class="navbar-nav navbar-align">
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#"
+								data-bs-toggle="dropdown">
+								<i class="align-middle" data-feather="settings"></i>
+							</a>
 
-			
+							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
+								data-bs-toggle="dropdown"><span class="text-dark">{{.nama_lengkap}}</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<a class="dropdown-item" href="/logout"><i class="align-middle me-2" data-feather="log-out"></i>Log out</a>
+							</div>
+						</li>
+					</ul>
+				</div>
 			</nav>
 			<!-- End Navbar -->
 
@@ -59,7 +86,7 @@
 				<div class="container-fluid p-0">
 
 					<div class="d-sm-flex align-items-center justify-content-between mb-4">
-						<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+						<h1 class="h3 mb-0 text-gray-800">Data Customer</h1>
 						<a href="/customer/tambah" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
 								class="fas fa-download fa-sm text-white-50"></i>Tambah</a>
 					</div>
@@ -89,7 +116,7 @@
 												<a href="/customer/edit?id={{.Id}}"
 													class="btn btn-sm btn-warning">Edit</a>
 												<a href="/customer/hapus?id={{.Id}}"
-													onclick="return confirm('Apakah Anda Yakin Menghapus Data Ini !!!')"
+													onclick="return confirm('Apakah Anda Ingin Menghapus Data Ini')"
 													class="btn btn-sm btn-danger">Hapus</a>
 											</td>
 										</tr>
@@ -107,8 +134,7 @@
 					<div class="row text-muted">
 						<div class="col-6 text-start">
 							<p class="mb-0">
-								<a class="text-muted" href="#"
-									target="_blank"><strong>sewaMotor</strong></a>
+								<a class="text-muted" href="#" target="_blank"><strong>sewaMotor</strong></a>
 							</p>
 						</div>
 						<div class="col-6 text-end">

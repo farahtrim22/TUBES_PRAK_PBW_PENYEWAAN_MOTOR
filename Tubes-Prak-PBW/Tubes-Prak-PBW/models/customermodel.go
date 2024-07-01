@@ -61,13 +61,13 @@ func (c *CustomerModel) Create(customer entities.Customer) bool {
 }
 
 func (c *CustomerModel) Find(id int64, customer *entities.Customer) error {
-	return c.conn.QueryRow("select * from customer where id = ?", id).Scan(&customer.Id, &customer.NamaLengkap, &customer.NIK, &customer.JenisKelamin, &customer.Alamat, &customer.NomorTelepon)
+	return c.conn.QueryRow("select * from customer where id_customer = ?", id).Scan(&customer.Id, &customer.NamaLengkap, &customer.NIK, &customer.JenisKelamin, &customer.Alamat, &customer.NomorTelepon)
 
 }
 
 func (c *CustomerModel) Update(customer entities.Customer) error {
 	_, err := c.conn.Exec(
-		"update customer set nama_lengkap = ?, nik = ?, jenis_kelamin = ?, alamat = ?, nomor_telepon = ? where id = ?",
+		"update customer set nama_lengkap = ?, nik = ?, jenis_kelamin = ?, alamat = ?, nomor_telepon = ? where id_customer = ?",
 		customer.NamaLengkap, customer.NIK, customer.JenisKelamin, customer.Alamat, customer.NomorTelepon, customer.Id,
 	)
 
@@ -79,5 +79,5 @@ func (c *CustomerModel) Update(customer entities.Customer) error {
 }
 
 func (c *CustomerModel) Delete(id int64) {
-	c.conn.Exec("delete from customer where id = ?", id)
+	c.conn.Exec("delete from customer where id_customer = ?", id)
 }

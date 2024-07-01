@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-up.html" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
-    <title>Tambah Data Customer</title>
+    <title>sewaMotor - Edit Data Customer</title>
 
     <link href="/static/css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -88,7 +88,7 @@
                                             <input
                                                 class="form-control form-control-lg {{if .validation.NomorTelepon}}is-invalid{{end}}"
                                                 type="text" value="{{ .customer.NomorTelepon }}" name="nomor_telepon" />
-                                                {{if .validation.NomorTelepon}}
+                                            {{if .validation.NomorTelepon}}
                                             <div class="invalid-feedback">
                                                 {{.validation.NomorTelepon}}
                                             </div>
@@ -122,7 +122,7 @@
             confirmButtonText: 'OK'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/";
+                window.location.href = "/customer";
             }
         });
     </script>
