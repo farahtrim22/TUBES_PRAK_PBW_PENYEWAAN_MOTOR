@@ -1,7 +1,0 @@
-package config
-
-import "github.com/gorilla/sessions"
-
-const SESSION_ID = "tubes_prak_pbw_session"
-
-var Store = sessions.NewCookieStore([]byte("qazwsxedcrfvtgb"))
