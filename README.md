@@ -1,6 +1,6 @@
 # Laporan Tugas Besar Praktikum Pemrograman Berbasis Web
 
-## Topik :sewaMotor
+## Topik : sewaMotor
 
 ## Anggota
 ## 1. Daffa Abraar Sajuti - 4522210040
@@ -19,7 +19,7 @@ Untuk memudahkan pengelolaan dan administrasi penyewaan motor secara terstruktur
 ----
 
 ### Flowchart website sewaMotor
-
+![Flowchart](https://github.com/farahtrim22/TUBES_PRAK_PBW_PENYEWAAN_MOTOR/blob/main/flowchart%20web%20sewaMotor.jpg)
 ---
 
 ### Fitur-Fitur yang tersedia pada website sewaMotor
